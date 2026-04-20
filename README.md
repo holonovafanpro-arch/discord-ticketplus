@@ -1,5 +1,51 @@
 # Discord Ticket Bot
 
+Bot Discord de support/tickets avec setup interactif, panneau, creation de tickets, gestion staff, transcripts HTML et statistiques.
+
+## 1) Prerequis
+
+- Node.js 18+
+- Un bot Discord cree sur le [Discord Developer Portal](https://discord.com/developers/applications)
+- Le bot invite sur ton serveur avec permissions admin (setup initial)
+
+## 2) Installation
+
+```bash
+npm install
+```
+
+Copie `.env.example` vers `.env`, puis remplis:
+
+- `TOKEN`: token du bot
+- `CLIENT_ID`: application id
+- `GUILD_ID` (optionnel): serveur de test pour mise a jour instant des slash commands
+- `STAFF_ROLE_ID` (optionnel): fallback role staff
+
+## 3) Lancer le bot
+
+```bash
+npm start
+```
+
+## 4) Commandes
+
+- `/setup` (Admin): Initialise le bot avec un wizard interactif. Cree role staff, categorie tickets, salon logs, et envoie le panel.
+- `/panel` (Admin): Envoie le panneau de creation de ticket dans le salon courant.
+- `/new` (User): Cree un ticket support instantanement.
+- `/close [reason]` (Staff): Ferme le ticket courant, sauvegarde un transcript HTML et log l'action.
+- `/add @user` (Staff): Ajoute un utilisateur au ticket courant.
+- `/remove @user` (Staff): Retire un utilisateur du ticket courant.
+- `/transcript` (Staff): Genere le transcript HTML du ticket courant et l'envoie en DM.
+- `/stats` (Staff): Affiche statistiques tickets du serveur (ouverts, fermes, temps moyen de premiere reponse).
+- `/reload` (Admin): Recharge la configuration serveur depuis le fichier de configuration.
+
+## 5) Donnees
+
+- Configuration: `data/guild-config.json`
+- Statistiques: `data/ticket-stats.json`
+
+# Discord Ticket Bot
+
 Bot Discord de support/tickets avec panneau, creation de ticket, claim, add/remove, transcript, fermeture et configuration multi-serveur.
 
 ## 1) Prerequis
